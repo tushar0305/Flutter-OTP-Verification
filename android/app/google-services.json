@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "890919790608",
+    "project_id": "iot-sub-zero",
+    "storage_bucket": "iot-sub-zero.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890919790608:android:790a6f65753265a3e10295",
+        "android_client_info": {
+          "package_name": "com.example.login_register"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890919790608-o3e4ji3k7u2qjcsjf88buisr27p5dgrt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7oG5Q_k0msUTVsCsf2bh-EEPyhk4t4aI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890919790608-o3e4ji3k7u2qjcsjf88buisr27p5dgrt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
