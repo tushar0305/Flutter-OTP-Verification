@@ -1,20 +1,20 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class MyPhone extends StatefulWidget {
-  const MyPhone({Key? key}) : super(key: key);
+class MyLogin extends StatefulWidget {
+  const MyLogin({Key? key}) : super(key: key);
 
   @override
-  State<MyPhone> createState() => _MyPhoneState();
+  State<MyLogin> createState() => _MyLoginState();
 }
 
-class _MyPhoneState extends State<MyPhone> {
+class _MyLoginState extends State<MyLogin> {
   TextEditingController countryCode = TextEditingController();
-  var phone = "";
+
+  var email = "";
+  var password = "";
 
   @override
   void initState() {
-    countryCode.text = "+91";
     super.initState();
   }
 
@@ -29,22 +29,22 @@ class _MyPhoneState extends State<MyPhone> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/img1.png',
-                width: 150,
-                height: 150,
+                'assets/login.png',
+                width: 200,
+                height: 200,
               ),
               const SizedBox(
                 height: 25,
               ),
               const Text(
-                "Phone Verification",
+                "Wealcome To HeatPump",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 10,
               ),
               const Text(
-                "We need to register your phone without getting started!",
+                "Login To your account",
                 style: TextStyle(
                   fontSize: 16,
                 ),
@@ -54,7 +54,7 @@ class _MyPhoneState extends State<MyPhone> {
                 height: 30,
               ),
               Container(
-                height: 55,
+                height: 45,
                 decoration: BoxDecoration(
                     border: Border.all(width: 1, color: Colors.grey),
                     borderRadius: BorderRadius.circular(10)),
@@ -64,19 +64,35 @@ class _MyPhoneState extends State<MyPhone> {
                     const SizedBox(
                       width: 10,
                     ),
-                    SizedBox(
-                      width: 40,
-                      child: TextField(
-                        controller: countryCode,
-                        keyboardType: TextInputType.number,
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                        ),
-                      ),
+                    const SizedBox(
+                      width: 10,
                     ),
-                    const Text(
-                      "|",
-                      style: TextStyle(fontSize: 33, color: Colors.grey),
+                    Expanded(
+                        child: TextField(
+                      onChanged: (value) {
+                        email = value;
+                      },
+                      decoration: const InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "Email",
+                      ),
+                    ))
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                height: 45,
+                decoration: BoxDecoration(
+                    border: Border.all(width: 1, color: Colors.grey),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(
+                      width: 10,
                     ),
                     const SizedBox(
                       width: 10,
@@ -84,12 +100,11 @@ class _MyPhoneState extends State<MyPhone> {
                     Expanded(
                         child: TextField(
                       onChanged: (value) {
-                        phone = value;
+                        password = value;
                       },
-                      keyboardType: TextInputType.phone,
                       decoration: const InputDecoration(
                         border: InputBorder.none,
-                        hintText: "Phone",
+                        hintText: "Password",
                       ),
                     ))
                   ],
@@ -103,22 +118,14 @@ class _MyPhoneState extends State<MyPhone> {
                 height: 45,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green.shade600,
+                        backgroundColor:
+                            const Color.fromARGB(255, 55, 239, 249),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
                     onPressed: () async {
-                      await FirebaseAuth.instance.verifyPhoneNumber(
-                        phoneNumber: countryCode.text + phone,
-                        verificationCompleted:
-                            (PhoneAuthCredential credential) {},
-                        verificationFailed: (FirebaseAuthException e) {},
-                        codeSent: (String verificationId, int? resendToken) {},
-                        codeAutoRetrievalTimeout: (String verificationId) {},
-                      );
-                      // ignore: use_build_context_synchronously
-                      // Navigator.pushNamed(context, 'verify');
+                      Navigator.pushNamed(context, 'home');
                     },
-                    child: const Text("Send the code")),
+                    child: const Text("Login")),
               )
             ],
           ),

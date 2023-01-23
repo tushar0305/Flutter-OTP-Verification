@@ -60,22 +60,22 @@ class _MyVerifyState extends State<MyVerify> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/img1.png',
-                width: 150,
-                height: 150,
+                'assets/otp-security.png',
+                width: 200,
+                height: 200,
               ),
               const SizedBox(
                 height: 25,
               ),
               const Text(
-                "Phone Verification",
+                "Email Verification",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 10,
               ),
               const Text(
-                "We need to register your phone without getting started!",
+                "Enter Your OTP",
                 style: TextStyle(
                   fontSize: 16,
                 ),
@@ -85,11 +85,8 @@ class _MyVerifyState extends State<MyVerify> {
                 height: 30,
               ),
               Pinput(
+                keyboardType: TextInputType.phone,
                 length: 6,
-                // defaultPinTheme: defaultPinTheme,
-                // focusedPinTheme: focusedPinTheme,
-                // submittedPinTheme: submittedPinTheme,
-
                 showCursor: true,
                 // ignore: avoid_print
                 onCompleted: (pin) => print(pin),
@@ -102,11 +99,17 @@ class _MyVerifyState extends State<MyVerify> {
                 height: 45,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green.shade600,
+                        backgroundColor: const Color.fromARGB(255, 55, 239, 249),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
-                    onPressed: () {},
-                    child: const Text("Verify Phone Number")),
+                    onPressed: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                          context,
+                          'password',
+                          (route) => false,
+                        );
+                    },
+                    child: const Text("Verify Email")),
               ),
               Row(
                 children: [
@@ -114,12 +117,12 @@ class _MyVerifyState extends State<MyVerify> {
                       onPressed: () {
                         Navigator.pushNamedAndRemoveUntil(
                           context,
-                          'phone',
+                          'email',
                           (route) => false,
                         );
                       },
                       child: const Text(
-                        "Edit Phone Number ?",
+                        "Edit Email ?",
                         style: TextStyle(color: Colors.black),
                       ))
                 ],

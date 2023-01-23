@@ -1,9 +1,11 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:login_register/phone.dart';
+// import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:login_register/email.dart';
+import 'package:login_register/login.dart';
 import 'package:login_register/verify.dart';
+import 'package:login_register/Password.dart';
 
-void main(){
+void main() {
   runApp(const MyApp());
 }
 
@@ -11,15 +13,16 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) async{
-    WidgetsFlutterBinding.ensureInitialized();
-    await Firebase.initializeApp();
+  Widget build(BuildContext context){
+    
     return MaterialApp(
-      initialRoute: 'phone',
+      initialRoute: 'email',
       debugShowCheckedModeBanner: false,
       routes: {
-        'phone': (context) => const MyPhone(),
-        'verify': (context) => const MyVerify()
+        'email': (context) => const MyEmail(),
+        'verify': (context) => const MyVerify(),
+        'password':(context) => const MyPassword(),
+        'login':(context) => const MyLogin(),
       },
     );
   }
