@@ -70,6 +70,7 @@ flutter:
     - assets/otp-security.png
     - assets/password.png
     - assets/login.png
+    - assets/gif/splash.gif
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
