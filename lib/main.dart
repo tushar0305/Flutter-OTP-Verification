@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-// import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:login_register/Dashboard.dart';
+import 'package:login_register/MainPage.dart';
+import 'package:login_register/about_user.dart';
+import 'package:login_register/contact_us.dart';
 import 'package:login_register/email.dart';
 import 'package:login_register/login.dart';
 import 'package:login_register/splash.dart';
 import 'package:login_register/verify.dart';
-import 'package:login_register/Password.dart';
+import 'package:login_register/password.dart';
+import 'package:login_register/wifi_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,8 +30,12 @@ class MyApp extends StatelessWidget {
         'password':(context) => const MyPassword(),
         'login':(context) => const MyLogin(),
         'splash':(context) => const SplashScreen(),
+        'mainpage':(context) => const MainPage(),
+        'wifi':(context) => const UpdateWiFi(),
+        'about':(context) => const AboutUser(),
+        'contact':(context) => const ContactUs(),
+        'dashboard':(context) => const UserProfile(),
       },
     );
   }
-// }
 }

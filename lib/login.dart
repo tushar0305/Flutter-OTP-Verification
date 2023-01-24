@@ -123,7 +123,7 @@ class _MyLoginState extends State<MyLogin> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
                     onPressed: () async {
-                      Navigator.pushNamed(context, 'home');
+                      Navigator.pushNamed(context, 'dashboard');
                     },
                     child: const Text("Login")),
               )
